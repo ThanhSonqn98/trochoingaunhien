@@ -4,7 +4,7 @@ import { GameType } from "../types";
 
 export async function analyzeAndGenerateGame(rawData: string) {
   // Always create a new instance right before the call to ensure the latest API Key is used
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({   apiKey: import.meta.env.VITE_GEMINI_API_KEY });
   
   const prompt = `
     VAI TRÒ: Bạn là sự kết hợp của Chuyên gia Lập trình Web, Chuyên gia Giáo dục Tiểu học, Chuyên gia Ngôn ngữ Tiếng Việt và Thiết kế Game UI/UX cho trẻ em.
@@ -40,12 +40,12 @@ export async function analyzeAndGenerateGame(rawData: string) {
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-pro-preview",
-      contents: prompt,
-      config: {
-        responseMimeType: "application/json",
-      },
-    });
+  model: "gemini-1.5-flash", // Dùng model này sẽ nhanh và ổn định hơn
+  contents: prompt,
+  config: {
+    responseMimeType: "application/json",
+  },
+});
 
     const data = JSON.parse(response.text || "{}");
     return data;
