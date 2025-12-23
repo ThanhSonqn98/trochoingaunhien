@@ -1,0 +1,7 @@
+{
+  "name": "Siêu Phẩm Giáo Dục Tiều Học - Game Master",
+  "description": "Ứng dụng tự động tạo trò chơi giáo dục từ dữ liệu thô, dành riêng cho giáo viên tiểu học với các trò chơi Rung Chuông Vàng, Lật Ảnh Trí Nhớ, Nối Từ và hơn thế nữa.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
